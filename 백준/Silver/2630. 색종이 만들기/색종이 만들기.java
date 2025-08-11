@@ -6,7 +6,7 @@ public class Main {
 	int[][] board;
 	
 	// 영역을 분할해가는 재귀 함수
-	public int[] reculSol(int[][] board, int si, int ei, int sj, int ej) {
+	public int[] reculSol(int si, int ei, int sj, int ej) {
 		// 현재 전체 보드가 white 면 state 0
 		// 현재 전체 보드가 blue 면 state 1
 		// 초기값은 -1 == 정해지지 않음
@@ -38,7 +38,7 @@ public class Main {
 					for (int k = 0; k < 2; k++) {
 						for (int l = 0; l < 2; l++) {
 							// 시작 - 중간 / 중간 - 끝
-							int[] wb = reculSol(board, is[k], is[k + 1], js[l], js[l + 1]);
+							int[] wb = reculSol(is[k], is[k + 1], js[l], js[l + 1]);
 							// 리턴값은 쪼개진 블럭의 흰색 / 파란색 조각 수
 							// 각자 누적
 							white += wb[0];
@@ -78,7 +78,7 @@ public class Main {
         	}
         }
         // 보드 분할 결과
-        int[] result = reculSol(board, 0, N, 0, N);
+        int[] result = reculSol(0, N, 0, N);
         
         // 출력
         bw.write(result[0] + "\n");
