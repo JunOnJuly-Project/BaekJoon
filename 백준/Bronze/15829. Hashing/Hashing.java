@@ -14,10 +14,16 @@ public class Main {
 	    r = 31;
 	    M = 1234567891;
 	    
+	    Long[] pows = new Long[L];
+	    pows[0] = 1L;
+	    for (int i = 1; i < L; i ++) {
+	    	pows[i] = pows[i-1] * r % M;
+	    }
+	    
 	    long hash = 0;
 	    for (int i = 0; i < str.length(); i++) {
 	    	char c = (char) (str.charAt(i) - 'a' + 1);
-	    	hash += c * Math.pow(r, i) % M;
+	    	hash += c * pows[i] % M;
 	    	hash %= M;
 	    }
 	    
