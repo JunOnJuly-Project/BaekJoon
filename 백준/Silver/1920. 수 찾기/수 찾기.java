@@ -8,18 +8,17 @@ public class Main{
         StringTokenizer st;
         
         int N = Integer.parseInt(br.readLine());
+        Set<Integer> nums = new HashSet<>();
         
-        Integer[] nums = new Integer[N];
         st = new StringTokenizer(br.readLine());
-        for (int i=0;i<N;i++){
-            nums[i] = Integer.parseInt(st.nextToken());
+        for (int i = 0; i < N; i++){
+            nums.add(Integer.parseInt(st.nextToken()));
         }
-        Arrays.sort(nums);
         
         int M = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
         for (int i=0;i<M;i++){
-            if (Arrays.binarySearch(nums, Integer.parseInt(st.nextToken())) >= 0){
+            if (nums.contains(Integer.parseInt(st.nextToken()))){
                 bw.write("1\n");
             }
             else{
