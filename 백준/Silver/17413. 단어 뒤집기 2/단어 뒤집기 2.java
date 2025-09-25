@@ -40,16 +40,11 @@ public class Main {
 				inBracket = false;
 			}
 			
-			else if (c == ' ') {
-				if (inBracket) {
-					stack.push(c);
-				}
-				
-				else {
-					resultSb.append(popAll(stack, false));
-					resultSb.append(c);
-				}
+			else if (c == ' ' && inBracket == false) {
+				resultSb.append(popAll(stack, false));
+				resultSb.append(c);
 			}
+			
 			else {
 				stack.push(c);
 			}
@@ -67,5 +62,3 @@ public class Main {
 		new Main().solution();
 	}
 }
-
-// A AA AB AAA AAB ABA BAB
