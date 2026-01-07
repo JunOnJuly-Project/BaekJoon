@@ -1,0 +1,1 @@
+print((lambda x,y:"<" if x<y else ">" if x>y else "==")(*map(int, input().split())))
